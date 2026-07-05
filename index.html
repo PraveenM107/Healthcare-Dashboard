@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jessica Taylor | Healthcare Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <img src="images/logo.svg" alt="CarePulse logo" class="brand-logo" />
+          <div>
+            <h1>CarePulse</h1>
+            <p>Clinical Dashboard</p>
+          </div>
+        </div>
+
+        <nav class="nav-links">
+          <a class="active" href="#">Overview</a>
+          <a href="#">Patient Summary</a>
+          <a href="#">Care Plan</a>
+          <a href="#">Lab Results</a>
+        </nav>
+
+        <div class="sidebar-card">
+          <h3>Current Focus</h3>
+          <p>Jessica Taylor needs continued monitoring and medication review.</p>
+          <button id="refresh-data">Refresh Data</button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Patient overview</p>
+            <h2 id="patient-title">Loading patient data...</h2>
+          </div>
+          <div class="status-pill" id="status-pill">Syncing data</div>
+        </header>
+
+        <section class="content-grid top-grid">
+          <article class="card patient-profile-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Patient profile</p>
+                <h3>Overview</h3>
+              </div>
+            </div>
+            <div class="profile-body">
+              <img src="images/jessica-avatar.svg" alt="Jessica Taylor portrait" class="patient-avatar" />
+              <div class="patient-details">
+                <h4 id="patient-name">Jessica Taylor</h4>
+                <p id="patient-meta">Loading details...</p>
+                <dl class="detail-list">
+                  <div>
+                    <dt>Gender</dt>
+                    <dd id="patient-gender">--</dd>
+                  </div>
+                  <div>
+                    <dt>Phone</dt>
+                    <dd id="patient-phone">--</dd>
+                  </div>
+                  <div>
+                    <dt>Insurance</dt>
+                    <dd id="patient-insurance">--</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </article>
+
+          <article class="card diagnosis-history-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Diagnosis history</p>
+                <h3>Recent conditions</h3>
+              </div>
+            </div>
+            <ul class="history-list" id="history-list">
+              <li>Loading history...</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="card chart-card">
+          <div class="card-header">
+            <div>
+              <p class="eyebrow">Vital trends</p>
+              <h3>Blood pressure history</h3>
+            </div>
+            <span class="chip" id="bp-trend">Loading...</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="blood-pressure-chart"></canvas>
+          </div>
+        </section>
+
+        <section class="vital-grid">
+          <article class="card vital-card">
+            <span class="vital-label">Blood pressure</span>
+            <strong id="blood-pressure">--</strong>
+            <p id="bp-caption">Latest reading</p>
+          </article>
+          <article class="card vital-card">
+            <span class="vital-label">Heart rate</span>
+            <strong id="heart-rate">--</strong>
+            <p>Beats per minute</p>
+          </article>
+          <article class="card vital-card">
+            <span class="vital-label">Temperature</span>
+            <strong id="temperature">--</strong>
+            <p>Current status</p>
+          </article>
+          <article class="card vital-card">
+            <span class="vital-label">Respiratory rate</span>
+            <strong id="respiratory-rate">--</strong>
+            <p>Breaths per minute</p>
+          </article>
+        </section>
+
+        <section class="content-grid bottom-grid">
+          <article class="card diagnostic-list-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Diagnostic list</p>
+                <h3>Current findings</h3>
+              </div>
+            </div>
+            <ul class="list-items" id="diagnostic-list"></ul>
+          </article>
+
+          <article class="card labs-card">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Lab results</p>
+                <h3>Recent labs</h3>
+              </div>
+            </div>
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>Test</th>
+                  <th>Value</th>
+                  <th>Range</th>
+                </tr>
+              </thead>
+              <tbody id="lab-results-body"></tbody>
+            </table>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
